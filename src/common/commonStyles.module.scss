@@ -1,0 +1,83 @@
+/*CSS Modules Common Styles*/
+@import "../styles/abstracts/mixins";
+
+.status{
+   @include circle(1rem);
+    border-radius: 50%;
+    display: inline-flex;
+    margin-right: 4px;
+&.Alive{
+    background-color: var(--color-success);
+}
+
+&.Dead{
+    background-color: var(--color-danger);
+}
+&.unknown{
+    background-color: var(--color-unknown);
+}
+}  
+
+.characterContainer{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+
+    img{
+        height: 8rem;
+        width: 8rem;
+        border-radius: 100%;
+        margin-bottom: 1rem;
+        padding:0.3rem;
+        border: 2px solid var(--color-secondary);
+        box-shadow: var(--shadow-xl);
+        object-fit: cover;
+    }
+}
+
+
+.status{
+    height: 1rem;
+    width: 1rem;
+    min-width: 1rem;
+    min-height: 1rem;
+    border-radius: 50%;
+    
+    
+&.Alive{
+    background-color: var(--color-success);
+}
+
+&.Dead{
+    background-color: var(--color-danger);
+}
+&.unknown{
+    background-color: var(--color-unknown);
+}
+}  
+.valueText{
+    font-weight: 600;
+    text-transform: capitalize;
+    color: var(--color-white);
+    display: block;
+}
+
+.valueTextBig{
+    font-weight: 700;
+    text-transform: capitalize;
+    color: var(--color-secondary);
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.labelText{
+    font-weight: 400;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--color-gray);
+}

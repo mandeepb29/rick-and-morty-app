@@ -1,0 +1,8 @@
+@import "/src/styles/abstracts/mixins";
+.container{
+   margin-top: 13rem;
+   margin-bottom: 6rem;
+   @include res(sm){
+      margin-bottom: 14rem;
+   }
+}

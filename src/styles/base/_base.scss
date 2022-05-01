@@ -1,0 +1,63 @@
+/*Overrides for default styles and basic styles for common elements*/
+*,
+*::after,
+*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*Different base fontsize for different screen sizes for responsiveness*/
+html{
+    font-size: 62.5%; //10px
+
+    @include res(md){
+        font-size: 56.25%;; // 9px
+    }
+    @include res(sm){
+        font-size: 50%; // 8px
+    }
+    @include res(xxs){
+       font-size: 43.75%; //7px
+    }
+}
+
+a{
+    transition: var(--transition-primary);
+    text-decoration: underline !important;
+    cursor: pointer;
+}
+
+button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: var(--transition-primary);
+}
+
+body{
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+img{
+    max-width: 100%;
+}
+
+input,select,textarea{
+    outline: none !important;
+    border: none;
+}
+
+body{
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: var(--color-bg);
+}
+
+img{
+    width: 100%;
+}
+
+ul{list-style: none;}
+

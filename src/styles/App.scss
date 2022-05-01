@@ -1,0 +1,17 @@
+/*COMMON STYLES*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+/*bootstrap css import*/
+@import "bootstrap/scss/bootstrap";
+
+/*abstracts*/
+@import "./abstracts/variables";
+@import "./abstracts/mixins";
+
+/*base*/
+@import "./base/base";
+@import "./base/typography";
+@import "./base/utilities";
+
+/*layout*/
+@import "./layout/commonLayout";

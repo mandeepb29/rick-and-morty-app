@@ -1,0 +1,29 @@
+@import "../../styles/abstracts/mixins";
+.card{
+    border-radius: 8px;
+    background: var(--color-bg-card);
+    padding: 1rem 1.6rem;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+.img{
+    @include circle(12rem);
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    border-radius: 100%;
+    margin-bottom: 1rem;
+    padding:0.3rem;
+    border: 3px solid var(--color-secondary);
+    box-shadow: var(--shadow-xl);
+
+    img{
+        border-radius: 100%;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
