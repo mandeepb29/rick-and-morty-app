@@ -10,7 +10,7 @@ const App = () => {
   const [resposneInfo, setresposneInfo] = useState({}); //Info object returned with characters request (will be used for total count and pagination)
   const [startOffset, setStartOffset] = useState(null); //Index of first character shown in the current page
   const [pageNumber, setPageNumber] = useState(0);// current page number
-
+  const [characterLoading, setCharacterLoading] = useState(true);//toggle Loader while fetchind data
   const recordsPerPage = 20;
 
   useEffect(() => {
@@ -22,6 +22,7 @@ const App = () => {
     fetchCharactersData().then((characterArrayJson) => {
       setCharacters(characterArrayJson.results);
       setresposneInfo(characterArrayJson.info);
+      setCharacterLoading(false);
     }).catch(err => {
       window.alert("Unable to fetch characters. Please try again.");
     })
@@ -35,6 +36,7 @@ const App = () => {
 */
   const handlePageClick = async (page) => {
     if (page - 1 != pageNumber) {
+      setCharacterLoading(true);
       setPageNumber(page - 1);
       setStartOffset((page - 1) * recordsPerPage);
 
@@ -42,7 +44,8 @@ const App = () => {
         const charactersResponse = await fetchService.getData(`${fetchService.BASE_CHARACTER_URL}?page=${page}`);
         setCharacters(charactersResponse.results);
         setresposneInfo(charactersResponse.info);
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 0);
+        setCharacterLoading(false);
       }
       catch (err) {
         window.alert("Unable to fetch characters. Please try again");
@@ -56,7 +59,10 @@ const App = () => {
       <Pagination totalPages={resposneInfo.pages} activePageNumber={pageNumber} handlePageSelect={handlePageClick} />
       <div className="body-container">
         <Header />
-        <CharactersGrid characters={characters} totalCharacters={resposneInfo.count} startOffset={startOffset} />
+        {
+          characterLoading ? <div class="loadingSpinner"></div>:<CharactersGrid characters={characters} totalCharacters={resposneInfo.count} startOffset={startOffset} />
+        }
+        
       </div>
     </div>
   );

@@ -1,13 +1,13 @@
 import React from 'react';
-import styles from "./ChaptersList.module.scss";
+import styles from "./EpisodeList.module.scss";
 import commonStyles from "../../common/commonStyles.module.scss";
 import {CgClose} from "react-icons/cg";
 import * as emojis from "../../common/emojis";
 import PropTypes from 'prop-types';
 
-function ChaptersList(props) {
+function EpisodeList(props) {
 
-    ChaptersList.propTypes = {
+    EpisodeList.propTypes = {
         toShow: PropTypes.bool,
         characterEpisodeDetails: PropTypes.object,
         closeChapterScreen:PropTypes.func
@@ -60,4 +60,4 @@ function ChaptersList(props) {
     );
 }
 
-export default ChaptersList;
+export default EpisodeList;

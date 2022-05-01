@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Character from '../Character/Character';
 import styles from "./CharactersGrid.module.scss";
-import ChaptersList from "../ChaptersList/ChaptersList";
+import EpisodeList from "../EpisodeList/EpisodeList";
 import LocationDetails from "../LocationDetails/LocationDetails";
 import * as fetchService from "../../services/fetchDataService";
 import PropTypes, { object } from 'prop-types';
@@ -17,10 +17,10 @@ export default function CharactersGrid(props) {
  const [endOffset, setEndOffset] = useState(0); //index of last character on currentpage
  const recordsPerPage = 20;
 
- const [characterEpisodeDetails,setCharacterEpisodeDetails] = useState(null);
- const [locationDetails,setLocationDetails] = useState(null);
- const [showChapters,setShowChapters] = useState(false);
- const [showLocation,setShowLocation] = useState(false);
+ const [characterEpisodeDetails,setCharacterEpisodeDetails] = useState(null); //state obj for ChaptersList component
+ const [locationDetails,setLocationDetails] = useState(null);//state obj for LocationDetails component
+ const [showChapters,setShowChapters] = useState(false); //to toggleView of ChaptersList component
+ const [showLocation,setShowLocation] = useState(false); //to toggleView of LocationDetails component
 
  useEffect(() => {
   setEndOffset(props.startOffset+recordsPerPage)
@@ -73,16 +73,16 @@ const toggleLocationScreen = async (character, location,locationType,toShow = tr
           Showing <span className="text-white">{props.startOffset + 1}</span>  to <span className="text-white">{endOffset > props.totalCharacters ? props.totalCharacters : endOffset}</span> out of <span className="text-primary">{props.totalCharacters}</span>  characters
         </h6> 
 
-      <div className='row'>
+      <div className="row">
         {props.characters.map((character,index) =>
             <div className='col-lg-4 col-md-6 d-flex' key={`character-card-${index}`}>
               <Character character={character} openChapterScreen={toggleChapterScreen} openLocationScreen={toggleLocationScreen} />
             </div>
         )}
-      </div>
+      </div> 
     </div>
 
-    <ChaptersList characterEpisodeDetails = {characterEpisodeDetails} toShow={showChapters} closeChapterScreen={toggleChapterScreen}/>
+    <EpisodeList characterEpisodeDetails = {characterEpisodeDetails} toShow={showChapters} closeChapterScreen={toggleChapterScreen}/>
     <LocationDetails locationDetails = {locationDetails} toShow={showLocation} closeLocationScreen={toggleLocationScreen}/>
 
     {/* Overlay over webpage when a above screen is opened */}

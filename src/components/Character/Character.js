@@ -27,7 +27,6 @@ export const Character = (props) => {
       console.log(err);
       window.alert("Unable to fetch episodes names. Error: ", err);
     });
-
   }, [props.character]);
 
   return (
