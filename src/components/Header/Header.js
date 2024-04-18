@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from "./Header.module.scss";
 import { IoIosSearch } from "react-icons/io";
-import CharacterFilter from '../Filters/CharacterFilter';
+// import CharacterFilter from '../Filters/CharacterFilter';
 
-export default function Header(props) {
+export default function Header({handleCharacterSearch}) {
 
   const debounceDelay = 1000;
   const debounce = (func,delay) => {
@@ -21,7 +21,10 @@ export default function Header(props) {
 
   const decouncedSearch = debounce(intiateSearch,debounceDelay);
 
-
+// Prop types validation
+YourComponent.propTypes = {
+  handleCharacterSearch: PropTypes.func.isRequired,
+};
 
   return (
     <header className={styles.header}>
@@ -35,10 +38,10 @@ export default function Header(props) {
 
           <div className="col-md-5">
             <div className="d-flex align-items-center">
-            <div class="input-group mr-4">
-              <span class="input-group-text" id="basic-addon1"><IoIosSearch size={20} />
+            <div className="input-group mr-4">
+              <span className="input-group-text" id="basic-addon1"><IoIosSearch size={20} />
               </span>
-              <input type="text" class="form-control"
+              <input type="text" className="form-control"
                 placeholder="Search by character name"
                 aria-label="search"
                 aria-describedby="basic-addon1"

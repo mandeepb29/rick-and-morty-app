@@ -37,15 +37,15 @@ function CharacterFilter() {
                             <p className='mb-0 lh-1' >
                                 Status
                             </p>
-                            <div class="btn-group mt-3" role="group" aria-label="Basic radio toggle button group">
-                                <input type="radio" class="btn-check" name="filterStatus" id="statusAlive" autocomplete="off" />
-                                <label class="btn btn-outline-primary btn-sm px-4 py-3" for="statusAlive">Alive</label>
+                            <div className="btn-group mt-3" role="group" aria-label="Basic radio toggle button group">
+                                <input type="radio" className="btn-check" name="filterStatus" id="statusAlive" autoComplete="off" />
+                                <label className="btn btn-outline-primary btn-sm px-4 py-3" htmlFor="statusAlive">Alive</label>
 
-                                <input type="radio" class="btn-check" name="filterStatus" id="statusDead" autocomplete="off" />
-                                <label class="btn btn-outline-primary btn-sm px-4 py-3" for="statusDead">Dead</label>
+                                <input type="radio" className="btn-check" name="filterStatus" id="statusDead" autoComplete="off" />
+                                <label className="btn btn-outline-primary btn-sm px-4 py-3" htmlFor="statusDead">Dead</label>
 
-                                <input type="radio" class="btn-check" name="filterStatus" id="statusUnkown" autocomplete="off" />
-                                <label class="btn btn-outline-primary btn-sm px-4 py-3" for="statusUnkown">Unknown</label>
+                                <input type="radio" className="btn-check" name="filterStatus" id="statusUnkown" autoComplete="off" />
+                                <label className="btn btn-outline-primary btn-sm px-4 py-3" htmlFor="statusUnkown">Unknown</label>
 
                             </div>
                         </div>
@@ -55,18 +55,18 @@ function CharacterFilter() {
                             <p className='mb-0 lh-1' >
                                 Gender
                             </p>
-                            <div class="btn-group mt-3" role="group" aria-label="Basic radio toggle button group">
-                                <input type="radio" class="btn-check" name="filterGender" id="genderMale" autocomplete="off" />
-                                <label class="btn btn-outline-primary btn-sm px-4 py-3" for="genderMale">Male</label>
+                            <div className="btn-group mt-3" role="group" aria-label="Basic radio toggle button group">
+                                <input type="radio" className="btn-check" name="filterGender" id="genderMale" autoComplete="off" />
+                                <label className="btn btn-outline-primary btn-sm px-4 py-3" htmlFor="genderMale">Male</label>
 
-                                <input type="radio" class="btn-check" name="filterGender" id="genderFemale" autocomplete="off" />
-                                <label class="btn btn-outline-primary btn-sm px-4 py-3" for="genderFemale">Female</label>
+                                <input type="radio" className="btn-check" name="filterGender" id="genderFemale" autoComplete="off" />
+                                <label className="btn btn-outline-primary btn-sm px-4 py-3" htmlFor="genderFemale">Female</label>
 
-                                <input type="radio" class="btn-check" name="filterGender" id="genderless" autocomplete="off" />
-                                <label class="btn btn-outline-primary btn-sm px-4 py-3" for="genderless">Genderless</label>
+                                <input type="radio" className="btn-check" name="filterGender" id="genderless" autoComplete="off" />
+                                <label className="btn btn-outline-primary btn-sm px-4 py-3" htmlFor="genderless">Genderless</label>
 
-                                <input type="radio" class="btn-check" name="filterGender" id="genderUnknown" autocomplete="off" />
-                                <label class="btn btn-outline-primary btn-sm px-4 py-3" for="genderUnknown">Unknown</label>
+                                <input type="radio" className="btn-check" name="filterGender" id="genderUnknown" autoComplete="off" />
+                                <label className="btn btn-outline-primary btn-sm px-4 py-3" htmlFor="genderUnknown">Unknown</label>
                             </div>
 
 

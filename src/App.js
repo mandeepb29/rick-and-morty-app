@@ -85,7 +85,7 @@ const handleCharacterSearch = async(searchString) => {
       }
       catch (err) {
         window.alert("Unable to fetch characters. Please try again");
-
+        console.log("Error in character fetch" - err);
       }
     }
   };
@@ -97,7 +97,7 @@ const handleCharacterSearch = async(searchString) => {
         <Header handleCharacterSearch={handleCharacterSearch} />
         {
           characterLoading ? 
-          <div class="loadingSpinner"></div>:
+          <div className="loadingSpinner"></div>:
           <CharactersGrid characters={characters} totalCharacters={resposneInfo?.count} startOffset={startOffset} />
         }
         
