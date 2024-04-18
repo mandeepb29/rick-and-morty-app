@@ -1,6 +1,6 @@
 # Rick and Morty App. 
 
-**Visit side - [https://rickkandmortyyy.netlify.app/] **
+**Visit side - [https://rickkandmortyyy.netlify.app/]**
 
 A react app to list all Rick and Morty characters. The app have following features:
 
