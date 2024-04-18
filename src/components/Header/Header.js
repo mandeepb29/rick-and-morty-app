@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./Header.module.scss";
 import { IoIosSearch } from "react-icons/io";
 // import CharacterFilter from '../Filters/CharacterFilter';
+import PropTypes from 'prop-types';
 
 export default function Header({handleCharacterSearch}) {
 
@@ -16,13 +17,13 @@ export default function Header({handleCharacterSearch}) {
     };
   }
   const intiateSearch = (searchInput) => {
-    props.handleCharacterSearch(searchInput.target.value);
+    handleCharacterSearch(searchInput.target.value);
   }
 
   const decouncedSearch = debounce(intiateSearch,debounceDelay);
 
 // Prop types validation
-YourComponent.propTypes = {
+Header.propTypes = {
   handleCharacterSearch: PropTypes.func.isRequired,
 };
 

@@ -27,6 +27,7 @@ const App = () => {
       setCharacterLoading(false);
     }).catch(err => {
       window.alert("Unable to fetch characters. Please try again.");
+      console.log("Error in character search result fetch" - err);
     })
     setStartOffset(0) //set the index of first character as 0 for page 0
   }, []);
@@ -53,6 +54,7 @@ const handleCharacterSearch = async(searchString) => {
     setCharacterLoading(false);
   }).catch(err => {
     window.alert("Unable to fetch search results. Please try again.");
+    console.log("Error in character search result fetch" - err);
   });
 }
 
