@@ -6,3 +6,16 @@
       margin-bottom: 14rem;
    }
 }
+
+.noData{
+   border: 1px solid var(--color-border);
+   border-radius: 1rem;;
+   padding: 10rem 3rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   p{
+         color: var(--color-primary);
+   }
+}

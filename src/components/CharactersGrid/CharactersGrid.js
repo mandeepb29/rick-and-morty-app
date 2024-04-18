@@ -7,7 +7,6 @@ import * as fetchService from "../../services/fetchDataService";
 import PropTypes, { object } from 'prop-types';
 
 export default function CharactersGrid(props) {
-
   CharactersGrid.propTypes = {
     startOffset: PropTypes.number,
     totalCharacters: PropTypes.number,
@@ -31,7 +30,7 @@ export default function CharactersGrid(props) {
   * @param object $character - character to show chapters for, episodes list, viewValue (showHide)
   * @return toggle the ChaptersList component
 */
-const toggleChapterScreen = (character,episodes,toShow = true) => {
+const toggleChapterScreen = (character,episodes,toShow = true) => { 
   if(toShow){
     const chaptersObj = {
       character:character,
@@ -50,6 +49,7 @@ const toggleChapterScreen = (character,episodes,toShow = true) => {
   * @param object $character - character to show location details for, location object, viewValue (show/Hide)
   * @return toggle the ChaptersList component
 */
+
 const toggleLocationScreen = async (character, location,locationType,toShow = true) => {
   if(toShow){
     setShowLocation(true);
@@ -67,6 +67,7 @@ const toggleLocationScreen = async (character, location,locationType,toShow = tr
 }
 
   return (
+    props?.totalCharacters != null && props?.totalCharacters > 0 ? 
     <>
       <div className={`container ${styles.container}`}>
         <h6 className='text-capitalise text-secondary'>
@@ -88,7 +89,19 @@ const toggleLocationScreen = async (character, location,locationType,toShow = tr
     {/* Overlay over webpage when a above screen is opened */}
     <div id="bodyOverlay" className={showChapters || showLocation ? "show":""} ></div>
     </>
-
+  :
+  <div className={`container ${styles.container}`}>
+    <div className="row justify-content-center">
+    <div className="col-md-8" >
+          <div className={styles.noData}>
+            <p className='mb-0'>
+               No data found.
+            </p>
+          </div>
+    </div>
+  </div>
+  </div>
+  
 )
 
 }

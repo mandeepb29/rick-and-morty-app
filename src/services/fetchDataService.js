@@ -10,17 +10,21 @@ export const getData = async (url) => {
     return data.json();
 }
 
+
 /**
   * @desc returns Episodes Details Array 
   * @param string $episodeURLs - list of episode URLs used to fetched episode details
   * @return Array of Episode Details JSON Objects
 */
+
+const getSingleEpDetails = async (epurl) => {
+  return await getData(epurl);
+}
+
 export const getEpisodesforCharacter = async (episodeURLs) => {
-  let episodes = await Promise.all(episodeURLs.map(async (url) => {
-      const episodeResponse = await getData(url);
-      return episodeResponse;
-  }));
+  let episodes = await Promise.all(episodeURLs.map(url => getSingleEpDetails(url)));
   return episodes;
 }
+
 
 

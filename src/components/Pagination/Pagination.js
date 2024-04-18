@@ -13,17 +13,21 @@ const Pagination = props => {
     const [pageList, setPageList] = useState([]); //array of page numbers 
     useEffect(() => {
         //create list of page numbers from 0 to last page number - 1
-       if(props.totalPages){
+       if(props?.totalPages){
            setPageList(Array.from({length: props.totalPages}, (_, i) => i))
        }
-    }, [props.totalPages])
+       else{
+        setPageList([])
+       }
+    }, [props?.totalPages])
 
+    
     return (
         <div className={styles.container}>
             {/* Pagination Header */}
             <div className={styles.containerHeader}>
             <h4 className='mb-0 text-secondary'>
-               {props.totalPages}
+               {props.totalPages ?? 0}
            </h4>
            <small className='font-weight-bold'>
                pages

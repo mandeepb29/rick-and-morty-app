@@ -11,6 +11,7 @@ const App = () => {
   const [startOffset, setStartOffset] = useState(null); //Index of first character shown in the current page
   const [pageNumber, setPageNumber] = useState(0);// current page number
   const [characterLoading, setCharacterLoading] = useState(true);//toggle Loader while fetchind data
+  const [searchString, setSearchString] = useState("");
   const recordsPerPage = 20;
 
   useEffect(() => {
@@ -20,6 +21,7 @@ const App = () => {
     }
 
     fetchCharactersData().then((characterArrayJson) => {
+      console.log("characterArrayJson - ",characterArrayJson)
       setCharacters(characterArrayJson.results);
       setresposneInfo(characterArrayJson.info);
       setCharacterLoading(false);
@@ -28,6 +30,31 @@ const App = () => {
     })
     setStartOffset(0) //set the index of first character as 0 for page 0
   }, []);
+
+
+const handleCharacterSearch = async(searchString) => {
+  console.log("calling handleCharacterSearch - ",searchString);
+  const searchUrl = `?name=${searchString}`;
+  setCharacterLoading(true);
+  setPageNumber(0);
+  setStartOffset(0);
+  setSearchString(searchString);
+  await fetchService.getData(`${fetchService.BASE_CHARACTER_URL}/${searchUrl}`).
+  then((characterSearchResponse) => {
+    console.log("characterSearchResponse" , characterSearchResponse);
+    if(characterSearchResponse?.results != null){
+      setCharacters(characterSearchResponse.results);
+      setresposneInfo(characterSearchResponse.info);
+    }
+    else{
+      setCharacters([]);
+      setresposneInfo(null);
+    }
+    setCharacterLoading(false);
+  }).catch(err => {
+    window.alert("Unable to fetch search results. Please try again.");
+  });
+}
 
   /**
   * @desc get the character lsit for current page and update pagination variables according to input
@@ -41,7 +68,16 @@ const App = () => {
       setStartOffset((page - 1) * recordsPerPage);
 
       try {
-        const charactersResponse = await fetchService.getData(`${fetchService.BASE_CHARACTER_URL}?page=${page}`);
+        let searchQueryString;
+        if(searchString)
+        {
+          searchQueryString = `&name=${searchString}`;
+        }
+        else{
+          searchQueryString = "";
+        }
+        const charactersResponse = await fetchService.getData(`${fetchService.BASE_CHARACTER_URL}/?page=${page}${searchQueryString}`);
+        console.log("handlePageClick charactersResponse", charactersResponse);
         setCharacters(charactersResponse.results);
         setresposneInfo(charactersResponse.info);
         window.scrollTo(0, 0);
@@ -56,11 +92,13 @@ const App = () => {
 
   return (
     <div>
-      <Pagination totalPages={resposneInfo.pages} activePageNumber={pageNumber} handlePageSelect={handlePageClick} />
+      <Pagination totalPages={resposneInfo?.pages} activePageNumber={pageNumber} handlePageSelect={handlePageClick} />
       <div className="body-container">
-        <Header />
+        <Header handleCharacterSearch={handleCharacterSearch} />
         {
-          characterLoading ? <div class="loadingSpinner"></div>:<CharactersGrid characters={characters} totalCharacters={resposneInfo.count} startOffset={startOffset} />
+          characterLoading ? 
+          <div class="loadingSpinner"></div>:
+          <CharactersGrid characters={characters} totalCharacters={resposneInfo?.count} startOffset={startOffset} />
         }
         
       </div>

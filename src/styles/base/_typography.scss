@@ -24,7 +24,7 @@ textarea {
     font-family:  "Montserrat", sans-serif;
 }
 
-button {
+button,.btn {
     font-weight: 600;
     @include medium-fs;
 }
@@ -34,7 +34,7 @@ a {
     transition : var(--transition-primary);
 }
 
-p {
+p,input,select,label { 
     @include base-fs;
 }
 

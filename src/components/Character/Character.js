@@ -6,7 +6,6 @@ import * as fetchService from '../../services/fetchDataService';
 import PropTypes from 'prop-types';
 
 export const Character = (props) => {
-
   Character.propTypes = {
     character: PropTypes.object,
     openLocationScreen: PropTypes.func,

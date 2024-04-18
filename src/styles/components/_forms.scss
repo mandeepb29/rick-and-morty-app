@@ -1,0 +1,30 @@
+.input-group{
+    background-color: var(--color-bg-card);
+    border-radius: 4rem;
+    padding: 1rem 1.6rem;
+    &-text{
+        background-color: var(--color-bg-card);
+        border:none;
+    }
+
+    input{
+        background-color: var(--color-bg-card);
+        border:none;
+        color: var(--color-white);
+        &::placeholder{
+            color: var(--color-border);
+        }
+
+        &:focus{
+            background-color: var(--color-bg-card);
+            color: var(--color-white);
+            border:none;
+            box-shadow: none;
+        }
+    }
+    
+}
+
+.form-control{
+    @include base-fs;
+}

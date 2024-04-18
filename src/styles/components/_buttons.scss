@@ -1,0 +1,18 @@
+.btn{
+    &-outline-primary{
+       font-size: 1.35rem;
+        font-weight: 500;
+        border-color: var(--color-border);
+        color: var(--color-unknown);
+
+        &:hover,&:active,&:focus{
+            background-color: var(--color-primary);
+            box-shadow: none;
+        }
+    }
+}
+
+.btn-check:checked + .btn-outline-primary{
+    background-color: var(--color-primary); 
+    border-color: var(--color-primary);
+}
