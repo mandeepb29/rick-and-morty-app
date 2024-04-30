@@ -31,13 +31,13 @@ Header.propTypes = {
     <header className={styles.header}>
       <div className="container">
         <div className="row justify-content-between align-items-center">
-          <div className="col-md-5">
-            <h1 className="text-primary text-md-left mb-0">
+          <div className="col-lg-5">
+            <h1 className="text-center text-primary text-lg-start mb-0 mb-2">
               Rick and Morty Characters
             </h1>
           </div>
 
-          <div className="col-md-5">
+          <div className="col-lg-5">
             <div className="d-flex align-items-center">
             <div className="input-group mr-4">
               <span className="input-group-text" id="basic-addon1"><IoIosSearch size={20} />
